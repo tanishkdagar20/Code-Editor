@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+Here’s a **complete summary of all the commands you used (or needed to use)** to run the **Code-Byte**
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ✅ 1. Clone the GitHub Repository
 
-## Available Scripts
 
-In the project directory, you can run:
+## ✅ 2. Install Root-Level Dev Dependencies (Optional)
 
-### `npm start`
+To use the `both` script:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm install concurrently --save-dev
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✅ 3. Install Backend Dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+cd backend
+npm install
+npm install nodemon --save-dev
+```
 
-### `npm run build`
+Then go back to the root:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd ..
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ✅ 4. Install Frontend Dependencies
 
-### `npm run eject`
+```bash
+cd frontend
+npm install
+npm install gsap
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> This installs required packages like `react-scripts` and `gsap` (used in `Errorpage.jsx`).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Then go back to root:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+cd ..
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## ✅ 5. Run the Full App
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Now run both frontend and backend together:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run both
+```
 
-### Code Splitting
+This runs:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```json
+"scripts": {
+  "frontend": "cd frontend && npm start",
+  "backend": "cd backend && npm start",
+  "both": "concurrently \"npm run backend\" \"npm run frontend\""
+}
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## ✅ 6. Access the App
 
-### Making a Progressive Web App
+Once it compiles successfully:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* Frontend: [http://localhost:3000](http://localhost:3000)
+* Backend: [http://localhost:5000](http://localhost:5000) 
+---
 
-### Advanced Configuration
+## 🧰 Extra Commands (Optional)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### To Run Frontend Only
 
-### Deployment
+```bash
+npm run frontend
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### To Run Backend Only
 
-### `npm run build` fails to minify
+```bash
+npm run backend
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 🧠 Final Notes
+
+* `nodemon` auto-restarts the backend when code changes.
+* `gsap` is used for animations (installing it fixed module errors).
+* You must always run from the **root project folder** (where `package.json` lives).
+
+---
